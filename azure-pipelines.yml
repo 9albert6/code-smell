@@ -21,7 +21,6 @@ steps:
   inputs:
     mavenPomFile: 'pom.xml'
     publishJUnitResults: false
-    codeCoverageToolOption: 'Cobertura'
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.8'
     mavenVersionOption: 'Default'
