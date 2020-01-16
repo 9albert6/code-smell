@@ -10,6 +10,13 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'codesmell_connection'
+    organization: '19albert96'
+    scannerMode: 'Other'
+
+- task: SonarCloudAnalyze@1
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
@@ -24,13 +31,6 @@ steps:
     sonarQubeRunAnalysis: true
     sqMavenPluginVersionChoice: 'latest'
 
-- task: SonarCloudPrepare@1
-  inputs:
-    SonarCloud: 'codesmell_connection'
-    organization: '19albert96'
-    scannerMode: 'Other'
-
-- task: SonarCloudAnalyze@1
 
 - task: SonarCloudPublish@1
   inputs:
