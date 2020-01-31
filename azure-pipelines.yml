@@ -21,6 +21,7 @@ steps:
   inputs:
     mavenPomFile: 'pom.xml'
     publishJUnitResults: false
+    codeCoverageToolOption: 'JaCoCo'
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.8'
     mavenVersionOption: 'Default'
@@ -31,6 +32,12 @@ steps:
     sqMavenPluginVersionChoice: 'latest'
 
 
+
 - task: SonarCloudPublish@1
   inputs:
     pollingTimeoutSec: '300'
+
+- task: codecoveragecomparerbt@1
+  inputs:
+    codecoveragetarget: '85'
+    codecoveragemeasurementmethod: 'Line'
